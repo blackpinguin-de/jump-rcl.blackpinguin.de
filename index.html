@@ -16,11 +16,17 @@
       </a>
     </noscript>
     <script>
-      var base    = 'https://blackpinguin-de.github.io/rcl.blackpinguin.de';
-      var path    = window.location.pathname;
-      var query   = window.location.search;
-      var hash    = window.location.hash;
-      var target  = base + path + query + hash;
+      var base  = 'https://blackpinguin-de.github.io/rcl.blackpinguin.de';
+      var path  = window.location.pathname;
+      var query = window.location.search;
+      var hash  = window.location.hash;
+
+      if (/^\/l\//.test(path)) {
+        base = 'https://blackpinguin-de.github.io/ext.blackpinguin.de';
+        path = path.substr(2);
+      }
+
+      var target = base + path + query + hash;
       window.location.href = target;
     </script>
   </body>
